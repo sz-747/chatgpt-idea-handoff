@@ -63,7 +63,7 @@ Link every transcript from the context note and add a pointer in the existing pr
 
 ## Known pitfalls and verified basis
 
-In the 2026-10-24 live search test, the available ChatGPT web tab opened signed out and stopped at the login dialog. Hand authentication to the user in the browser, then resume the search; do not type credentials.
+An early 2026-10-24 live test stopped at a login dialog; a later test successfully searched and read both original conversations through a signed-in browser. Hand missing authentication to the user; never type credentials. During the successful test, the page DOM retained cached elements from the previous conversation after navigation. Scope capture to the active conversation, verify source identity, and discard cached unrelated message IDs; a whole-document query can mix chats. See [verification evidence](docs/test.md).
 
 In the 2026-10-24 two-conversation handoff, direct chat tools returned only five recent turns with assistant content references. Initial browser snapshots also missed earlier messages because of virtualization. Scrolling and decoding downloaded shared HTML recovered 18 user messages plus 17 assistant text replies (and a separate logo image), and five exchanges in the second chat. Earlier notes had missed the original product direction, experiment, action contract and changing language advice. Use these as regression evidence for the method, not as expected counts for future chats.
 
