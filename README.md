@@ -14,3 +14,5 @@ python -B -m unittest discover -s tests
 The parser reads a local downloaded HTML file and writes Markdown. It does not authenticate or download chats. Shared snapshots may omit later private changes; hidden reasoning and internal tool messages are excluded. Keep raw downloads, exports and transcripts in the destination project's private storage, outside this repository.
 
 See [verification](docs/test.md) and [maintenance notes](docs/working.md).
+
+Licensed under the [MIT License](LICENSE).
