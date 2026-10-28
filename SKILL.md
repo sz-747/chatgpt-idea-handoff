@@ -25,6 +25,16 @@ Searching the signed-in account is for discovering relevant candidates. It does 
 - [scripts/extract_shared_chat.py](scripts/extract_shared_chat.py) converts a downloaded shared page's embedded conversation data into Markdown without executing page JavaScript. It is an offline parser, not a downloader or an authenticated history API.
 - Project instructions determine the destination. Resolve machine paths through the active workspace routes; keep prose in `.md`, helper code in `scripts/`, and temporary raw page data outside final deliverables.
 
+## Background operation and direct file output
+
+Default to completing the handoff without taking desktop focus, using the system clipboard or sending desktop mouse/keyboard input. Prefer the active client's authorized chat reading tools; when their output is incomplete, prefer an authorized browser interface that can navigate and read page content without foreground interaction. Confirm that background control is supported by the actual client before relying on it. Browser automation is not a public ChatGPT history API.
+
+Capture selected conversation text from tool results or page structure directly into structured data, then write UTF-8 Markdown with native file tools or a local script. Create directories, save transcripts/context, update project links and read back the results programmatically. Do not open Notepad, another text editor, File Explorer or Save As dialogs to transfer or save text. Do not use clipboard-based transfer. The bundled shared-page parser already writes files directly; it remains an offline parser, not an authenticated downloader.
+
+For browser extraction, verify the active conversation identity, load the available beginning and end, and check message order, counts, code blocks and missing replies. Read only the requested conversations. DOM access does not establish completeness on virtualized pages; keep the existing coverage checks and source labels. Do not extract credentials, inspect hidden service endpoints or call undocumented account APIs.
+
+If the remaining retrieval route requires desktop focus, clipboard use or desktop input, explain the specific blocker and the proposed interaction, and obtain explicit permission before using it. General permission to import a chat does not imply permission to take over the desktop. A sign-in requirement must be handled by the user directly. Preserve useful partial work and state the missing coverage when no authorized background route succeeds; do not silently fall back to desktop control. A user-provided official export remains an offline alternative.
+
 ## Retrieval and completeness
 
 Search the full available ChatGPT web index for candidate chats before settling on a title or topic match. For broad searches or when signed-in web access is unavailable, use a user-provided official data export and search its conversation JSON locally. Search terms match chat titles and message text; the web search is not semantic, so use concrete words from the idea and try meaningful variants. Review result titles and surrounding context, then open only relevant conversations. Record the queries or export files searched, route, account/workspace when known, result coverage, and whether archived chats were in scope; one query is not evidence of exhaustive discovery.
@@ -57,7 +67,8 @@ Link every transcript from the context note and add a pointer in the existing pr
 - ChatGPT web search covered the available title/message index for the requested idea using concrete keywords and useful variants; candidate chats were reviewed, and only relevant conversations were opened. State account/workspace, search scope, selected chats, and known exclusions such as locked/deleted chats.
 - Correct conversation identity and destination verified for every selected chat; every source-visible user and assistant text message accounted for in order, with counts and explicit non-text exclusions.
 - No unresolved content-reference placeholder passed off as an assistant reply. Each source scope is labeled original/export/shared snapshot/partial, with any gaps stated.
-- All required Markdown deliverables exist, links resolve, and the context note includes earlier architectural decisions and reversals, not only the latest exchange.
+- Retrieval and saving used background tools and direct file writes; any desktop interaction had explicit permission for that interaction. Report the actual route and any remaining foreground dependency.
+- All required Markdown deliverables exist, were read back successfully, links resolve, and the context note includes earlier architectural decisions and reversals, not only the latest exchange.
 - When updating notes, compare against the recovered full source and reconcile obsolete missing-content notices. Importing context does not change implementation progress or grant build authority.
 - Final report states what was saved, newly recovered context, and remaining limits. Do not claim authenticated full history from a shared snapshot.
 
