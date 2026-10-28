@@ -18,3 +18,13 @@ Manual review scenarios for the updated instructions:
 - Existing shared HTML or official export: parse locally and write directly; retain snapshot/export coverage labels and report missing messages.
 
 These scenarios were reviewed against the contract, not executed as live browser tests. The four existing synthetic parser tests were rerun successfully after this documentation update. No authenticated background browser run or fresh-agent behavior test was performed.
+
+## Authorized background handoff (2026-10-28; recorded 2026-10-29)
+
+A subsequent live test recovered 12 user messages and 12 assistant replies from one signed-in original conversation's current selected branch. A hidden in-app browser performed keyword search, loaded virtualized earlier/later turns using page-level Playwright events, and expanded a collapsed pasted table. Overlapping batches of message IDs established one chronological order; both beginning and end were reached. Direct chat reading had exposed only five recent exchanges despite reporting no further page.
+
+Rendered message bodies were written directly to a local intermediate file and converted to UTF-8 Markdown. The handoff included a chronological transcript, implementation context and a verification receipt. Code-block content, rendered linked URLs, message IDs, file read-back, transcript hash and local handoff links were checked. No desktop mouse/keyboard injection, clipboard access, editor, file manager or save dialog was used. No share link or source message was created.
+
+The external browser provider rejected an explicit hidden-tab visibility option. The supported hidden in-app tab then loaded the signed-in session after normal page loading, without authentication changes or challenge intervention. Prefer that separate hidden surface before interacting with user-owned tabs. Private source identities, transcripts and account data are excluded from this repository.
+
+This is one host/session and selected-branch result, not proof of exhaustive account discovery, alternate branches, deleted content or cross-client reliability. Citation links exposed in the rendered text were retained; secondary sources in citation popovers and non-text asset downloads were outside the test. Citation favicons were omitted. A console encoding error during reporting was corrected by using UTF-8 output. The earlier instruction-only review above remains historical; it did not itself perform this live test.
